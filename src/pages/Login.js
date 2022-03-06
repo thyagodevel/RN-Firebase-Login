@@ -6,7 +6,7 @@ const Login = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const SignIn = () => {
+  const signIn = () => {
     auth().signInWithEmailAndPassword(email, password).then(() => {
       console.log('logado');
       navigation.navigate('Home');
@@ -41,7 +41,7 @@ const Login = ({navigation}) => {
         />
         <TouchableOpacity
           style={{ height: 28, backgroundColor: '#DADADD', borderRadius: 4, justifyContent: 'center', alignItems: 'center', marginBottom: 12, }}
-          onPress={() => {SignIn()}}
+          onPress={() => signIn()}
         >
           <Text>Entrar</Text>
         </TouchableOpacity>
@@ -50,7 +50,7 @@ const Login = ({navigation}) => {
             Não possui cadastro?
           </Text>
           <TouchableOpacity onPress={() => navigation.navigate('Registry')} >
-            <Text style={{ color: '#538EDF', fontWeight: 'bold', }} > Cadastre-se Aqui</Text>
+              <Text style={{ color: '#538EDF', fontWeight: 'bold', }} > Cadastre-se Aqui</Text>
           </TouchableOpacity>
         </View>
       </View>

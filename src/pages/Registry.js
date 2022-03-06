@@ -6,9 +6,9 @@ const Login = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const SignIn = () => {
+  const registry = () => {
     auth().createUserWithEmailAndPassword(email, password).then(() => {
-      console.log('logado');
+      console.log('Cadastrado');
       navigation.navigate('Home');
 
     }).catch((error) => {
@@ -41,7 +41,7 @@ const Login = ({navigation}) => {
         />
         <TouchableOpacity
           style={{ height: 28, backgroundColor: '#DADADD', borderRadius: 4, justifyContent: 'center', alignItems: 'center', marginBottom: 12, }}
-          onPress={() => {SignIn()}}
+          onPress={() => registry()}
         >
           <Text>Cadastrar</Text>
         </TouchableOpacity>

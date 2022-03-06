@@ -15,17 +15,22 @@ const StackScreens = () => {
           name='Login'
           component={Login}
           options={{
-            headerShown: false
+            headerShown: false,
           }}
         />
         <Stack.Screen
-          name='Registry' component={Registry}
+          name='Registry'
+          component={Registry}
+          options={{
+            headerShown: false,
+            animation: 'none',
+          }}
         />
         <Stack.Screen
           name='Home'
           component={Home}
           options={{
-            headerShown: false
+            headerLeft: () => false
           }}
         />
     </Stack.Navigator>

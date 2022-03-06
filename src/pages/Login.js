@@ -22,17 +22,19 @@ const Login = ({navigation}) => {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <StatusBar barStyle='light-content' />
-      <View style={{ height: 50 }} >
-        <Text style={{ color: '#FFFFFF', fontSize: 24, fontWeight: 'bold', textTransform: 'uppercase' }} >Login</Text>
-      </View>
-      <View style={{ width: 400, height: 180, justifyContent: 'center', borderWidth: 2, borderColor: '#DADADD', borderRadius: 4, paddingHorizontal: 38 }} >
+      <View style={{ width: 400, height: 250, justifyContent: 'center', borderWidth: 2, borderColor: '#DADADD', borderRadius: 4, paddingHorizontal: 38 }} >
+        <View style={{ height: 50, alignItems: 'center' }} >
+          <Text style={{ color: '#FFFFFF', fontSize: 24, fontWeight: 'bold', textTransform: 'uppercase' }} >Login</Text>
+        </View>
         <TextInput
-          style={{ height: 36, backgroundColor: 'grey', marginBottom: 12, borderRadius: 4, fontSize: 18, padding: 8, color: '#FFFFFF', }}
+          style={{ height: 36, backgroundColor: '#FFFFFF', marginBottom: 12, borderRadius: 4, fontSize: 18, padding: 8, }}
+          placeholder='Digite seu e-mail'
           onChangeText={(t) => setEmail(t)}
           value={email}
         />
         <TextInput
-          style={{ height: 36, backgroundColor: 'grey', marginBottom: 12, borderRadius: 4, fontSize: 18, padding: 8, color: '#FFFFFF', }}
+          style={{ height: 36, backgroundColor: '#FFFFFF', marginBottom: 12, borderRadius: 4, fontSize: 18, padding: 8, }}
+          placeholder='Digite sua senha'
           secureTextEntry={true}
           onChangeText={(t) => setPassword(t)}
           value={password}
@@ -48,8 +50,8 @@ const Login = ({navigation}) => {
             Não possui cadastro?
           </Text>
           <TouchableOpacity onPress={() => navigation.navigate('Registry')} >
-              <Text style={{ color: '#538EDF', fontWeight: 'bold', }} > Cadastre-se Aqui</Text>
-            </TouchableOpacity>
+            <Text style={{ color: '#538EDF', fontWeight: 'bold', }} > Cadastre-se Aqui</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </KeyboardAvoidingView>

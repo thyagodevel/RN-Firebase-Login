@@ -40,7 +40,7 @@ const Login = ({navigation}) => {
           value={password}
         />
         <TouchableOpacity
-          style={{ height: 28, backgroundColor: '#DADADD', borderRadius: 4, justifyContent: 'center', alignItems: 'center', marginBottom: 18, }}
+          style={{ height: 28, backgroundColor: '#DADADD', borderRadius: 4, justifyContent: 'center', alignItems: 'center', marginBottom: 12, }}
           onPress={() => {SignIn()}}
         >
           <Text>Cadastrar</Text>

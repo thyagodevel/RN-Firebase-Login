@@ -1,112 +1,49 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import React, { useState } from 'react';
+import { SafeAreaView, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import auth from '@react-native-firebase/auth';
 
-import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+const App = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+  const createUser = () => {
+    auth().createUserWithEmailAndPassword(email, password).then(() => {
+      console.log('Usuário criado com sucesso!');
+    }).catch((error) => {
+      if (error.code === 'auth/email-already-in-use') {
+        console.log('Este email ja esta em uso');
+      }
+      if (error.code === 'auth/invalid-email') {
+        console.log('Este email esta inválido');
+      }
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+      console.log(error);
+    })
+  }
+  
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
-
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
+    <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#000000', }} >
+      <View style={{ width: 300, borderWidth: 2, borderColor: '#DADADD', padding: 20, borderRadius: 4, }} >
+        <TextInput
+          style={{ height: 36, backgroundColor: 'grey', marginBottom: 12, borderRadius: 4, fontSize: 18, padding: 8, color: '#FFFFFF', }}
+          onChangeText={(t) => setEmail(t)}
+          value={email}
+        />
+        <TextInput
+          style={{ height: 36, backgroundColor: 'grey', marginBottom: 12, borderRadius: 4, fontSize: 18, padding: 8, color: '#FFFFFF', }}
+          secureTextEntry={true}
+          onChangeText={(t) => setPassword(t)}
+          value={password}
+        />
+        <TouchableOpacity
+          style={{ height: 28, backgroundColor: '#DADADD', borderRadius: 4, justifyContent: 'center', alignItems: 'center', }}
+          onPress={() => {createUser()}}
+        >
+          <Text>Criar</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
-  );
-};
+  )
+}
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
-
-export default App;
+export default App

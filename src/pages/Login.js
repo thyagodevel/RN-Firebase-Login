@@ -38,11 +38,19 @@ const Login = ({navigation}) => {
           value={password}
         />
         <TouchableOpacity
-          style={{ height: 28, backgroundColor: '#DADADD', borderRadius: 4, justifyContent: 'center', alignItems: 'center', }}
+          style={{ height: 28, backgroundColor: '#DADADD', borderRadius: 4, justifyContent: 'center', alignItems: 'center', marginBottom: 12, }}
           onPress={() => {SignIn()}}
         >
           <Text>Entrar</Text>
         </TouchableOpacity>
+        <View style={{ justifyContent: 'center', flexDirection: 'row', }} >
+          <Text style={{ color: '#FFFFFF', fontWeight: 'bold', }} >
+            Não possui cadastro?
+          </Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Registry')} >
+              <Text style={{ color: '#538EDF', fontWeight: 'bold', }} > Cadastre-se Aqui</Text>
+            </TouchableOpacity>
+        </View>
       </View>
     </KeyboardAvoidingView>
   )

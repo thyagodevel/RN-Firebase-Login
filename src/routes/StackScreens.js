@@ -8,10 +8,23 @@ const Stack = createNativeStackNavigator();
 
 const StackScreens = () => {
   return (
-    <Stack.Navigator>
-        <Stack.Screen name='Login' component={Login} />
-        <Stack.Screen name='Registry' component={Registry} />
-        <Stack.Screen name='Home' component={Home} />
+    <Stack.Navigator
+      initialRouteName='Login'
+    >
+        <Stack.Screen
+          name='Login'
+          component={Login}
+          options={{
+            headerShown: false
+          }}
+        />
+        <Stack.Screen
+          name='Registry' component={Registry}
+        />
+        <Stack.Screen
+          name='Home'
+          component={Home}
+        />
     </Stack.Navigator>
   )
 }

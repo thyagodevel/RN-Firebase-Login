@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { SafeAreaView, View, Text, TextInput, TouchableOpacity } from 'react-native';
 import auth from '@react-native-firebase/auth';
 
-const App = () => {
+const ok = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -45,5 +45,3 @@ const App = () => {
     </SafeAreaView>
   )
 }
-
-export default App

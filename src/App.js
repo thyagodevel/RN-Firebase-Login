@@ -1,13 +1,14 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import StackScreens from './routes/StackScreens';
+import StackNavigator from './routes/StackNavigator';
+
 
 const App = () => {
   return (
     <NavigationContainer>
-        <StackScreens />
+      <StackNavigator />
     </NavigationContainer>
   )
 }
 
-export default App
+export default App;

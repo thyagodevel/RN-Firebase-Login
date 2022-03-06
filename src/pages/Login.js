@@ -13,6 +13,7 @@ const Login = ({navigation}) => {
 
     }).catch((error) => {
       console.log('Erro atual: ' + error);
+      console.log(error);
     });
   }
 

@@ -5,7 +5,9 @@ const Home = () => {
   return (
     <SafeAreaView style={{ flex: 1 }} >
       <StatusBar barStyle='dark-content' />
-      <Text>Home</Text>
+      <View>
+        <Text>Ok</Text>
+      </View>
     </SafeAreaView>
   )
 }

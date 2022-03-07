@@ -21,7 +21,7 @@ const Login = ({navigation}) => {
       style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#F9F9F9', }}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
-      <StatusBar barStyle='light-content' />
+      <StatusBar barStyle='dark-content' />
       <View style={{ width: 400, height: 250, justifyContent: 'center', borderWidth: 2, borderRadius: 4, paddingHorizontal: 38, backgroundColor: '#000000' }} >
         <View style={{ height: 50, alignItems: 'center' }} >
           <Text style={{ color: '#FFFFFF', fontSize: 24, fontWeight: 'bold', textTransform: 'uppercase' }} >Registry</Text>

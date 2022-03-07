@@ -22,7 +22,7 @@ const Login = ({navigation}) => {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <StatusBar barStyle='light-content' />
-      <View style={{ width: 400, height: 250, justifyContent: 'center', borderWidth: 2, borderColor: '#DADADD', borderRadius: 4, paddingHorizontal: 38, backgroundColor: '#000000' }} >
+      <View style={{ width: 400, height: 250, justifyContent: 'center', borderWidth: 2, borderRadius: 4, paddingHorizontal: 38, backgroundColor: '#000000' }} >
         <View style={{ height: 50, alignItems: 'center' }} >
           <Text style={{ color: '#FFFFFF', fontSize: 24, fontWeight: 'bold', textTransform: 'uppercase' }} >Registry</Text>
         </View>
